@@ -20,8 +20,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Setup FFmpeg
-      run: ./prepare.sh  
-      working-directory: ~/FFmpeg/
+      run: | 
+        cd ~/FFmpeg/
+        ./prepare.sh  
       
     - name: Setup poetry
       run: poetry install --extras vpf-pytorch        
