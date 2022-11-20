@@ -34,7 +34,7 @@ jobs:
         echo $CUDACXX
         echo $PATH
         source $(poetry env info --path)/bin/activate
-        cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -D FFMPEG_DIR=${FFMPEG} -D VIDEO_CODEC_SDK_DIR:PATH=${VIDEO_CODEC_SDK} -DGENERATE_PYTHON_BINDINGS:BOOL="1" -DGENERATE_PYTORCH_EXTENSION:BOOL="1" 
+        cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -D FFMPEG_DIR=${FFMPEG} -D VIDEO_CODEC_SDK_DIR:PATH=${VIDEO_CODEC_SDK} -DGENERATE_PYTHON_BINDINGS:BOOL="1" -DGENERATE_PYTORCH_EXTENSION:BOOL="1" -DCMAKE_INSTALL_PREFIX:PATH="$PWD/install"
 
     - name: Build
       # Build your program with the given configuration
